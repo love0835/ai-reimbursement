@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AI 報賬抓信</title>
+<style>
+  :root { --fg: #1f2328; --muted: #59636e; --bg: #ffffff; --line: #d1d9e0; --link: #0969da; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: #e6edf3; --muted: #9198a1; --bg: #0d1117; --line: #3d444d; --link: #4493f8; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 system-ui, "Microsoft JhengHei", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+  p.sub, footer { color: var(--muted); }
+  a { color: var(--link); }
+  ul { padding-left: 1.3em; }
+  footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); font-size: .9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>AI 報賬抓信</h1>
+  <p class="sub">個人自用的 Gmail 唯讀小程式，只在開發者自己的 Windows 電腦上執行。<br>
+  A personal, read-only Gmail helper that runs only on the developer's own Windows computer.</p>
+
+  <h2>它做什麼</h2>
+  <ul>
+    <li>每天從開發者自己的 Gmail 找出<strong>白名單寄件者</strong>寄來的 invoice 和信用卡電子帳單（目前是 AI 服務供應商與發卡銀行），把 PDF 存到同一台電腦的資料夾，供每月報帳使用。</li>
+    <li>白名單寫死在本機設定檔裡，程式只搜尋這些寄件者的信，不會搜尋或讀取其他信件。</li>
+    <li>寄件網域或 Gmail 寄件驗證（DKIM／SPF／DMARC）對不上的信，一律不下載，用來擋假冒的釣魚信。</li>
+    <li>權限只申請 <code>gmail.readonly</code>（唯讀）：不能寄信、不能刪信、不能改任何設定。</li>
+  </ul>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Once a day, it looks in the developer's own Gmail for invoices and credit-card e-statements from an <strong>allowlist of senders</strong> (currently AI service providers and the card-issuing bank), and saves the PDFs to a folder on the same computer for monthly expense reports.</li>
+    <li>The allowlist is a local configuration file. The program searches only for mail from those senders and does not search or read any other mail.</li>
+    <li>Messages whose sender domain or Gmail authentication results (DKIM / SPF / DMARC) do not match are never downloaded.</li>
+    <li>It requests only the <code>gmail.readonly</code> scope: it cannot send, delete or modify anything.</li>
+  </ul>
+
+  <h2>誰可以用 / Who can use it</h2>
+  <p>只有開發者本人。這不是公開服務，不開放其他人登入，也沒有伺服器。<br>
+  Only the developer. It is not a public service, other people cannot sign in, and there is no server.</p>
+
+  <h2>隱私權 / Privacy</h2>
+  <p>資料只存在開發者自己的電腦上，不上傳、不分享給任何人。詳見<a href="privacy.html">隱私權政策 / Privacy Policy</a>。</p>
+
+  <footer>
+    最後更新 / Last updated: 2026-10-21 ·
+    <a href="privacy.html">隱私權政策 / Privacy Policy</a>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>隱私權政策 · AI 報賬抓信</title>
+<style>
+  :root { --fg: #1f2328; --muted: #59636e; --bg: #ffffff; --line: #d1d9e0; --link: #0969da; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: #e6edf3; --muted: #9198a1; --bg: #0d1117; --line: #3d444d; --link: #4493f8; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 system-ui, "Microsoft JhengHei", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+  p.sub, footer, .en { color: var(--muted); }
+  a { color: var(--link); }
+  ul { padding-left: 1.3em; }
+  footer { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); font-size: .9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>隱私權政策 / Privacy Policy</h1>
+  <p class="sub">適用於「AI 報賬抓信」（以下稱本程式）。生效日期 / Effective: 2026-10-21</p>
+
+  <h2>1. 適用範圍 / Scope</h2>
+  <p>本程式是開發者個人自用的工具，只在開發者自己的 Windows 電腦上執行，只存取開發者本人的 Gmail 帳號。本程式沒有伺服器，也不提供給其他人使用。</p>
+  <p class="en">This program is a personal tool. It runs only on the developer's own Windows computer and accesses only the developer's own Gmail account. It has no server and is not offered to anyone else.</p>
+
+  <h2>2. 讀取哪些 Google 使用者資料 / Data accessed</h2>
+  <ul>
+    <li>權限只有 <code>https://www.googleapis.com/auth/gmail.readonly</code>（唯讀）。本程式不寄信、不刪信、不改標籤或設定。</li>
+    <li>只搜尋本機設定檔裡<strong>白名單寄件者</strong>的信：AI 服務供應商的 invoice，以及發卡銀行寄來的信用卡電子帳單。搜尋條件由程式依白名單產生，不接受其他搜尋字串。</li>
+    <li>對白名單寄件者的信，本程式讀取：寄件者、主旨、日期、Gmail 寄件驗證結果（DKIM／SPF／DMARC），以及信件內容，用途只有找出 PDF 附件或信中 Stripe 官方網域的 invoice PDF 下載連結。</li>
+    <li>設定白名單時，開發者可以手動執行一次「探查」模式：在自己電腦的畫面上列出近 120 天像帳單的信的寄件者與主旨，用來確認寄件地址。這個結果只顯示在畫面上，不存檔。</li>
+  </ul>
+  <p class="en">The only scope is <code>gmail.readonly</code>. The program searches only for messages from an allowlist of senders (AI service providers' invoices and the card-issuing bank's e-statements). For those messages it reads the sender, subject, date, authentication results and message content, solely to find PDF attachments or the invoice PDF link on Stripe's official domain. An optional, manually run "discover" mode shows the sender and subject of invoice-like messages from the last 120 days on the developer's own screen, without saving them.</p>
+
+  <h2>3. 怎麼使用 / How data is used</h2>
+  <p>只用來把白名單寄件者的 invoice 和帳單 PDF 存到開發者自己的電腦，作為開發者每月報帳的原始憑證。不用於廣告、不出售、不做使用者分析、不用來訓練任何 AI 模型。</p>
+  <p class="en">Data is used only to save allowlisted invoices and statements as PDFs on the developer's own computer, as source documents for the developer's monthly expense reports. It is not used for advertising, not sold, not used for profiling, and not used to train any AI model.</p>
+
+  <h2>4. 存在哪裡 / Where data is stored</h2>
+  <ul>
+    <li><strong>只存在開發者自己的電腦上。</strong>下載的 PDF 存在本機的報帳資料夾。</li>
+    <li>Google 授權（refresh token）存在 Windows 認證管理員，只有開發者的 Windows 帳號讀得到。</li>
+    <li>執行紀錄只記信件 ID、日期、寄件網域、存檔檔名、發票號與檔案雜湊值，不記信件內文、下載連結或授權碼。</li>
+    <li>信件內文不存檔。</li>
+  </ul>
+  <p class="en">Everything stays on the developer's own computer. PDFs are saved to a local folder. The Google refresh token is kept in Windows Credential Manager. Logs contain only message IDs, dates, sender domains, file names, invoice numbers and file hashes; they never contain message bodies, download links or tokens. Message bodies are not saved.</p>
+
+  <h2>5. 分享與傳輸 / Sharing</h2>
+  <ul>
+    <li>本程式不把任何 Gmail 資料傳給第三方。它只連線到 Google 的 Gmail API，以及在信中只有連結時，連到 Stripe 官方網域下載該張 invoice PDF。</li>
+    <li>存下的 PDF 之後由開發者自己在本機開啟、整理成報帳文件交給所屬公司。開發者整理時會使用自己的 AI 助理工具（Claude Code）讀取這些 PDF，該工具依其服務條款處理內容。</li>
+  </ul>
+  <p class="en">The program does not send any Gmail data to third parties. It connects only to Google's Gmail API and, when a message contains only a link, to Stripe's official domain to download that invoice PDF. The developer later opens the saved PDFs locally to prepare expense reports for their employer, using their own AI assistant tool (Claude Code), which processes the content under its own terms.</p>
+
+  <h2>6. 保存期間與刪除 / Retention and deletion</h2>
+  <p>PDF 依報帳需要保存在本機；刪除本機資料夾即完全刪除。撤銷授權的方式：到 <a href="https://myaccount.google.com/permissions">Google 帳戶 &gt; 第三方存取權</a> 移除本程式，或在本機執行本程式的撤銷指令（同時刪除本機儲存的授權）。</p>
+  <p class="en">PDFs are kept locally as long as needed for expense records; deleting the local folder removes them completely. To revoke access, remove this app at <a href="https://myaccount.google.com/permissions">Google Account &gt; Third-party access</a>, or run the program's local revoke command, which also deletes the stored token.</p>
+
+  <h2>7. 政策變更 / Changes</h2>
+  <p>如果本程式讀取的資料或用途改變，會先更新本頁並修改生效日期。</p>
+  <p class="en">If the data accessed or its use changes, this page and its effective date will be updated first.</p>
+
+  <footer>
+    <a href="index.html">回首頁 / Home</a>
+  </footer>
+</main>
+</body>
+</html>
